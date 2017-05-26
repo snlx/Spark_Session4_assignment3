@@ -1,0 +1,7 @@
+1. Execute wordcount program in Spark Scala shell. 
+
+val input =sc.textFile("/hadoop/wordCount.txt")
+val count = input.flatMap(line => line.split(" ")).map(word => (word, 1)).reduceByKey(_ + _)
+count.foreach(println)
+or
+counts.saveAsTextFile("/hadoop/Result")
